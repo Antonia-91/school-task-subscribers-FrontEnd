@@ -1,0 +1,42 @@
+@import "login";
+@import "regristrate";
+@import "nav";
+@import "user";
+@import "admin";
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
+
+body {
+  background-color: grey;
+  font-family: "Roboto", sans-serif;
+}
+
+/***** main-content *******/
+.main-content {
+  height: 100vh;
+  background: grey;
+}
+
+.header {
+  color: rgb(45, 45, 46);
+  display: flex;
+  //flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  //align-content: space-evenly;
+  margin: 15px;
+  font-size: 8px;
+}
+
+.stop {
+  background-color: grey;
+  font-size: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.stop:hover {
+  background: #ff652f;
+}

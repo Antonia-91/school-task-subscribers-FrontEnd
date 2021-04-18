@@ -1,0 +1,49 @@
+.admin {
+  box-sizing: border-box;
+  color: white;
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  padding: 80px 40px 40px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  color: #fff;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.admin h1 {
+  text-align: center;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+  color: #ff652f;
+}
+
+.admin li {
+  list-style: none;
+  line-height: 20px;
+}
+
+.admin li:hover {
+  color: #ff652f;
+  font-size: 20px;
+  transform: translate(0.9s);
+}
+
+.admin-btn {
+  background: #ff652f;
+  font-size: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.admin-btn:hover {
+  background-color: grey;
+  font-size: 0.6rem;
+}
