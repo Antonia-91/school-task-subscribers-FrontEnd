@@ -6,7 +6,7 @@
 
 // -------- ENDPOINT CALLS -------- //
 export function getUser(user) {
-  fetch("https://awesome-pictures.herokuapp.com/users/login", {
+  return fetch("https://awesome-pictures.herokuapp.com/users/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(user),
@@ -15,6 +15,7 @@ export function getUser(user) {
     .then((user) => {
       console.log(user);
       localStorage.setItem("userLoggedIn", JSON.stringify(user));
+      return user;
     })
     .catch((err) => console.log(err));
 }

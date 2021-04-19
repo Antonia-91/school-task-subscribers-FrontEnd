@@ -36,6 +36,7 @@ adminBtn.addEventListener("click", () => printAdminContent());
 
 window.addEventListener("click", (e) => {
   // --------  eventlisteners submit form -------- //
+
   if (e.target.matches("#submit-login")) {
     let userName = document.querySelector("#userName");
     let loginPassword = document.querySelector("#loginPassword");
@@ -46,8 +47,11 @@ window.addEventListener("click", (e) => {
         userName: userName.value.trim(),
         password: loginPassword.value.trim(),
       };
-      getUser(loginUser);
-      updateDom();
+      getUser(loginUser).then((user) => {
+        userLoggedIn = user;
+        updateDom(user);
+      });
+
       //printLoginContent(user.userName);
     } else {
       alert("you must complete all necessary fields");
@@ -92,6 +96,13 @@ window.addEventListener("click", (e) => {
     }
   }
   // --------  eventlisteners Stop subrscribe -------- //
+  if (e.target.matches(".stop")) {
+    let subscribtion = {
+      subscribed: userLoggedIn.userLoggedIn[0].subscribed ? false : true,
+    };
+    //ls
+    let LSuser = JSON.parse(localStorage.getItem("userLoggedIn"));
+  }
 });
 
 // -------- ENDPOINT CALLS -------- //
@@ -99,6 +110,7 @@ window.addEventListener("click", (e) => {
 // ---- DOM Functions ---- ///
 function updateDom() {
   console.log("print maincontent");
+
   if (userLoggedIn) {
     printLoginContent(userLoggedIn);
   } else {
