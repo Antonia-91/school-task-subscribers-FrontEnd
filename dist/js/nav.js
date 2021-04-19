@@ -46,7 +46,7 @@ export function printNavUser() {
         <ul>
           <li id="home-btn"><a href="#">Home</a></li>
           <li id="logOut-btn"><a href="#">LogOut</a></li>
-          <li id="singUp-btn"><a href="#">Sign up</a></li>
+          <li id="admin-btn"><a href="#">Admin</a></li>
           
         </ul>
       </div>
