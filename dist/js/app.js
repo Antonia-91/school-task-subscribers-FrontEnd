@@ -3,30 +3,29 @@ console.log("hej");
 // GLOBAL VARIABLES
 let userLoggedIn = localStorage.getItem("userLoggedIn");
 
-
 // import { printMainContent, printLoginContent } from "./main.js";
 import { getUser, printLoginForm } from "./login.js";
 import { clearFields, printSignUpForm, addNew } from "./signUp.js";
+import { printNavMain, printNavUser, printNavAdmin } from "./nav";
 /*import { printAdminTamplate, getSubscribers, getUserId } from "./admin.js";
 import {} from "./stopSubscribe.js";*/
 
 //-------------- EVENTLISTENERS --------------- //
 
 let homeBtn = document.getElementById("home-btn");
-homeBtn.addEventListener("click", ()=>{
+homeBtn.addEventListener("click", () => {
   // if(userLoggedIn){
-
   // }
-})
+});
 let loginBtn = document.getElementById("login-btn");
-loginBtn.addEventListener("click", ()=>{
-  console.log("LOGIN FORM")
-  printLoginForm()
+loginBtn.addEventListener("click", () => {
+  console.log("LOGIN FORM");
+  printLoginForm();
 });
 let signUp = document.getElementById("singUp-btn");
-signUp.addEventListener("click", ()=>printSignUpForm());
+signUp.addEventListener("click", () => printSignUpForm());
 let adminBtn = document.getElementById("admin-btn");
-adminBtn.addEventListener("click", ()=>printAdminContent());
+adminBtn.addEventListener("click", () => printAdminContent());
 
 window.addEventListener("click", (e) => {
   // --------  eventlisteners submit form -------- //

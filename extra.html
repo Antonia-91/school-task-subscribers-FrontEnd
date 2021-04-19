@@ -1,45 +1,135 @@
+<!------- Main content NOT LOGGED IN ------>
+
 <div class="container">
-    <div class="bg1">
-      <h2>we<span> love</span></h2>
-      <p>Natur</p>
-    </div>
-    <div class="bg1">
-      <!-- <i class="fas fa-envelope-open-text"></i>
+  <div class="bg1">
+    <h2>we<span> love</span></h2>
+    <p>Natur</p>
+  </div>
+  <div class="bg1">
+    <!-- <i class="fas fa-envelope-open-text"></i>
       <p>Newsletters</p>
       <button class="stop">STOP SUBRCRIBE</button> -->
-    </div>
-    <div class="bg2">
-      <!-- <i class="fas fa-user-alt"></i>
-      <p>${user}</p> -->
-    </div>
-    <div class="bg1">
-      <h1><i class="fab fa-instagram"></i></h1>
-      <p>Follow</p>
-    </div>
-    <div class="bg1">
-      <p>About us</p>
-      <i class="fas fa-user-friends"></i>
-    </div>
-    <div class="bg2">
-      <h2>Gallery</h2>
-      <h3><i class="fas fa-images"></i></h3>
-    </div>
-    <div class="bg1">
-      <p>Contact</p>
-      <i class="fas fa-phone"></i>
-    </div>
-    <div class="bg1">
-      <h2><i class="fab fa-blogger-b"></i></h2>
-      <p>Blog</p>
-    </div>
-    <div class="bg2">
-      <h2><i class="fab fa-github"></i></h2>
-      <p>GitHub Projects</p>
-    </div>
-    <div class="bg2">
-      <h2><i class="far fa-newspaper"></i></h2>
-      <p>Latest Release</p>
-    </div>
-    <div class="bg2"></div>
-    <div class="bg2"></div>
   </div>
+  <div class="bg2">
+    <!-- <i class="fas fa-user-alt"></i>
+      <p>${user}</p> -->
+  </div>
+  <div class="bg1">
+    <h1><i class="fab fa-instagram"></i></h1>
+    <p>Follow</p>
+  </div>
+  <div class="bg1">
+    <p>About us</p>
+    <i class="fas fa-user-friends"></i>
+  </div>
+  <div class="bg2">
+    <h2>Gallery</h2>
+    <h3><i class="fas fa-images"></i></h3>
+  </div>
+  <div class="bg1">
+    <p>Contact</p>
+    <i class="fas fa-phone"></i>
+  </div>
+  <div class="bg1">
+    <h2><i class="fab fa-blogger-b"></i></h2>
+    <p>Blog</p>
+  </div>
+  <div class="bg2">
+    <h2><i class="fab fa-github"></i></h2>
+    <p>GitHub Projects</p>
+  </div>
+  <div class="bg2">
+    <h2><i class="far fa-newspaper"></i></h2>
+    <p>Latest Release</p>
+  </div>
+  <div class="bg2"></div>
+  <div class="bg2"></div>
+</div>
+
+<!------- Main content LOGINFORM  ------>
+
+<div class="login-wrapper" id="login-div">
+  <form action="" class="form">
+    <h2>Login</h2>
+
+    <div class="input-group">
+      <input type="text" name="loginUser" id="loginUser" required />
+      <label for="loginUser">User Name</label>
+    </div>
+    <div class="input-group">
+      <input type="password" name="loginPassword" id="loginPassword" required />
+      <label for="loginPassword">Password</label>
+    </div>
+
+    <input type="submit" value="Login" class="submit-btn" />
+    <a href="#forgot-pw" class="forgot-pw">Forgot Password?</a>
+  </form>
+
+  <div id="forgot-pw">
+    <form action="" class="form">
+      <a href="#" class="close">&times;</a>
+      <h2>Reset Password</h2>
+      <div class="input-group">
+        <input type="email" name="email" id="email" required />
+        <label for="email">Email</label>
+      </div>
+      <input type="submit" value="Submit" class="submit-btn" />
+    </form>
+  </div>
+</div>
+
+<!------- Main content REG FORM   ------>
+
+<div class="login-wrapper" id="reg-div">
+  <form action="" class="form">
+    <h2>Regristrate</h2>
+
+    <div class="input-group">
+      <input type="text" name="fName" id="fName" required />
+      <label for="fName">Firt name</label>
+    </div>
+
+    <div class="input-group">
+      <input type="text" name="lName" id="lName" required />
+      <label for="lName">Last name</label>
+    </div>
+
+    <div class="input-group">
+      <input type="text" name="userName" id="userName" required />
+      <label for="userName">User name</label>
+    </div>
+
+    <div class="input-group">
+      <input type="text" name="regEmail" id="regEmail" required />
+      <label for="regEmail">Email</label>
+    </div>
+
+    <div class="input-group">
+      <input type="password" name="regPassword" id="regPassword" required />
+      <label for="regPassword">Password</label>
+    </div>
+
+    <input type="submit" value="save" class="submit-btn" id="submit-new-btn" />
+  </form>
+</div>
+
+<!------- Main content ADMIN  ------>
+<div class="login-wrapper">
+  <div class="admin">
+    <div>
+      <h1>Admin</h1>
+      <p>subscribers</p>
+    </div>
+    <div>
+      <ul>
+        <li>${email}</li>
+        <li>${email}</li>
+        <li>${email}</li>
+        <li>${email}</li>
+        <li>${email}</li>
+        <li>${email}</li>
+      </ul>
+    </div>
+    <button class="admin-btn">New Post</button>
+  </div>
+</div>
