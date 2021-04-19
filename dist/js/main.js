@@ -1,8 +1,8 @@
 // --- main tamplate - Not logged in --- //
 export function printMainContent() {
   // change to loginBtn
-  let loginBtn = document.getElementById("login-btn");
-  loginBtn.innerHTML = `<li id="login-btn"><a href="login.html">Login</a></li>`;
+  //let loginBtn = document.getElementById("login-btn");
+  //loginBtn.innerHTML = `<li id="login-btn"><a href="login.html">Login</a></li>`;
   // empty main content
   document.querySelector(".main-content").innerHTML = "";
 
@@ -57,10 +57,10 @@ export function printMainContent() {
 }
 
 // --- main tamplate -  logged in --- //
-export function printLoginContent(username) {
+export function printLoginContent(user) {
   // change to logOutBtn
-  let loginBtn = document.getElementById("login-btn");
-  loginBtn.innerHTML = ` <li id="logOut-btn"><a href="#">Log out</a></li>`;
+  // let loginBtn = document.getElementById("login-btn");
+  // loginBtn.innerHTML = ` <li id="logOut-btn"><a href="#">Log out</a></li>`;
   // empty main content
   document.querySelector(".main-content").innerHTML = "";
 
@@ -73,11 +73,16 @@ export function printLoginContent(username) {
       <div class="bg1">
         <i class="fas fa-envelope-open-text"></i>
         <p>Newsletters</p>
-        <button class="stop">STOP SUBRCRIBE</button>
+       ${
+         user.userLoggedIn[0].subscribed
+           ? '<button class="stop">STOP SUBRCRIBE</button> '
+           : '<button class="stop"> SUBRCRIBE</button> '
+       }
+        
       </div>
       <div class="bg2">
         <i class="fas fa-user-alt"></i>
-        <p>${username}</p>
+        <p>${user.userLoggedIn[0].userName}</p>
       </div>
       <div class="bg1">
         <h1><i class="fab fa-instagram"></i></h1>

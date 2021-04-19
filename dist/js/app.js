@@ -1,27 +1,34 @@
 console.log("hej");
 
 // GLOBAL VARIABLES
-let userLoggedIn = localStorage.getItem("userLoggedIn");
+let userLoggedIn = JSON.parse(localStorage.getItem("userLoggedIn"));
+console.log(userLoggedIn);
 
-// import { printMainContent, printLoginContent } from "./main.js";
-import { getUser, printLoginForm } from "./login.js";
-import { clearFields, printSignUpForm, addNew } from "./signUp.js";
-import { printNavMain, printNavUser, printNavAdmin } from "./nav";
+import { printMainContent, printLoginContent } from "./main.js";
+import { printLoginForm, getUser } from "./login.js";
+import { printSignUpForm, addNew } from "./signUp.js";
+// import { printNavMain, printNavUser, printNavAdmin } from "./nav";
 /*import { printAdminTamplate, getSubscribers, getUserId } from "./admin.js";
 import {} from "./stopSubscribe.js";*/
 
 //-------------- EVENTLISTENERS --------------- //
-
+window.addEventListener("load", () => {
+  updateDom();
+});
+// handels homeBtn
 let homeBtn = document.getElementById("home-btn");
 homeBtn.addEventListener("click", () => {
-  // if(userLoggedIn){
-  // }
+  updateDom();
 });
+//handel loginform
 let loginBtn = document.getElementById("login-btn");
-loginBtn.addEventListener("click", () => {
+loginBtn.addEventListener("click", (e) => {
+  console.log(e.target);
   console.log("LOGIN FORM");
+
   printLoginForm();
 });
+// handels signupform
 let signUp = document.getElementById("singUp-btn");
 signUp.addEventListener("click", () => printSignUpForm());
 let adminBtn = document.getElementById("admin-btn");
@@ -30,13 +37,18 @@ adminBtn.addEventListener("click", () => printAdminContent());
 window.addEventListener("click", (e) => {
   // --------  eventlisteners submit form -------- //
   if (e.target.matches("#submit-login")) {
+    let userName = document.querySelector("#userName");
+    let loginPassword = document.querySelector("#loginPassword");
+    console.log(userName, loginPassword);
+
     if (userName.value.trim() != "" && loginPassword.value.trim() != "") {
       let loginUser = {
         userName: userName.value.trim(),
         password: loginPassword.value.trim(),
       };
       getUser(loginUser);
-      // printLoginContent(user.userName);
+      updateDom();
+      //printLoginContent(user.userName);
     } else {
       alert("you must complete all necessary fields");
     }
@@ -45,6 +57,13 @@ window.addEventListener("click", (e) => {
   // --------  eventlisteners SignUp  form -------- //
   if (e.target.matches("#submit-new-btn")) {
     e.preventDefault();
+
+    let fName = document.querySelector("#fName");
+    let lName = document.querySelector("#lName");
+    let userName = document.querySelector("#userName");
+    let regEmail = document.querySelector("#regEmail");
+    let regPassword = document.querySelector("#regPassword");
+    let checkbox = document.querySelector("#checkbox");
 
     if (
       fName.value.trim() !== "" &&
@@ -56,17 +75,18 @@ window.addEventListener("click", (e) => {
       //new user object using user input
       let newUser = {
         fName: fName.value.trim(),
-        lName: lName.value.trim(),
+        lastName: lName.value.trim(),
         userName: userName.value.trim(),
         email: regEmail.value.trim(),
         password: regPassword.value.trim(),
         admin: false,
+        subscribed: checkbox.checked,
       };
       //clear all fields
-      clearFields();
+      //clearFields();
 
       addNew(newUser);
-      printSignUpForm();
+      updateDom();
     } else {
       alert("you must complete all necessary fields");
     }
@@ -77,3 +97,11 @@ window.addEventListener("click", (e) => {
 // -------- ENDPOINT CALLS -------- //
 
 // ---- DOM Functions ---- ///
+function updateDom() {
+  console.log("print maincontent");
+  if (userLoggedIn) {
+    printLoginContent(userLoggedIn);
+  } else {
+    printMainContent();
+  }
+}

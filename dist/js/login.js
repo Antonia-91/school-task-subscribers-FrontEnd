@@ -1,5 +1,4 @@
 //Imports
-import { printLoginContent } from "./main";
 
 // post
 
@@ -7,7 +6,7 @@ import { printLoginContent } from "./main";
 
 // -------- ENDPOINT CALLS -------- //
 export function getUser(user) {
-  fetch("http://localhost:3000/users/login/", {
+  fetch("https://awesome-pictures.herokuapp.com/users/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(user),
@@ -16,7 +15,6 @@ export function getUser(user) {
     .then((user) => {
       console.log(user);
       localStorage.setItem("userLoggedIn", JSON.stringify(user));
-      printLoginContent(user.userName)
     })
     .catch((err) => console.log(err));
 }
