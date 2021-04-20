@@ -15,35 +15,59 @@ import { printMainContent, printLoginContent } from "./main.js";
 import { printLoginForm, getUser } from "./login.js";
 import { printSignUpForm, addNew } from "./signUp.js";
 import { subsctibtionHandeler } from "./stopSubscribe.js";
-// import { printNavMain, printNavUser, printNavAdmin } from "./nav";
-/*import { printAdminTamplate, getSubscribers, getUserId } from "./admin.js";
-import {} from "./stopSubscribe.js";*/
+import { getAdminInfo, printAdminContent } from "./admin.js";
+//import {} from "./stopSubscribe.js";*/
 
 //-------------- EVENTLISTENERS --------------- //
 window.addEventListener("load", () => {
   updateDom();
 });
-// handels homeBtn
-let homeBtn = document.getElementById("home-btn");
-homeBtn.addEventListener("click", () => {
-  updateDom();
-});
-//handel loginform
-let loginBtn = document.getElementById("login-btn");
-loginBtn.addEventListener("click", (e) => {
-  console.log(e.target);
-  console.log("LOGIN FORM");
+// // handels homeBtn
+// let homeBtn = document.getElementById("home-btn");
+// homeBtn.addEventListener("click", () => {
+//   updateDom();
+// });
+// //handel loginform
+// let loginBtn = document.getElementById("login-btn");
+// loginBtn.addEventListener("click", (e) => {
+//   console.log(e.target);
+//   console.log("LOGIN FORM");
 
-  printLoginForm();
-});
-// handels signupform
-let signUp = document.getElementById("singUp-btn");
-signUp.addEventListener("click", () => printSignUpForm());
-let adminBtn = document.getElementById("admin-btn");
-adminBtn.addEventListener("click", () => printAdminContent());
+//   printLoginForm();
+// });
+// // handels signupform
+// let signUp = document.getElementById("singUp-btn");
+
+// signUp.addEventListener("click", () => printSignUpForm());
+// let adminBtn = document.getElementById("admin-btn");
+// adminBtn.addEventListener("click", () => printAdminContent());
 
 //--------------  GLOBAL EVENTLISTENERS --------------- //
 window.addEventListener("click", (e) => {
+  if (e.target.matches(".login-btn")) {
+    printLoginForm();
+  }
+
+  if (e.target.matches(".home-btn")) {
+    updateDom();
+  }
+
+  if (e.target.matches(".logOut-btn")) {
+    localStorage.removeItem("userLoggedIn");
+    userLoggedIn = null;
+    updateDom();
+  }
+
+  if (e.target.matches(".admin-btn")) {
+    console.log("click");
+
+    getAdminInfo().then((users) => printAdminContent(users));
+  }
+
+  if (e.target.matches(".signUp-btn")) {
+    printSignUpForm();
+  }
+
   // --------  eventlisteners submit form -------- //
 
   if (e.target.matches("#submit-login")) {
@@ -138,11 +162,31 @@ window.addEventListener("click", (e) => {
 
 // ---- DOM Functions ---- ///
 function updateDom() {
+  let navbar = document.querySelector(".navbar-links > ul");
+
   console.log("print maincontent");
 
   if (userLoggedIn) {
+    let liTamplate = ` 
+    <li id="home-btn"><a class="home-btn">Home</a></li>
+    <li id="logOut-btn"><a class="logOut-btn">LogOut</a></li>
+    ${
+      userLoggedIn.userLoggedIn[0].admin
+        ? '<li id="admin-btn"><a class="admin-btn">Admin</a></li> '
+        : "<li></li> "
+    } `;
+
+    navbar.innerHTML = liTamplate;
     printLoginContent(userLoggedIn);
   } else {
+    let liTamplate = ` 
+          <li id="home-btn"> <a class="home-btn"> Home</a></li>
+          <li id="login-btn"><a class="login-btn" >Login</a></li>
+          <li id="signUp-btn"><a class="signUp-btn">Sign up</a></li>
+          
+              `;
+    navbar.innerHTML = liTamplate;
+
     printMainContent();
   }
 }

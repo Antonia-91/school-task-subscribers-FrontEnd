@@ -1,14 +1,14 @@
 // -------- ENDPOINT CALLS -------- //
 // behöver TVÅ Fetch. En som hämtar info om inloggad user. om admin = true -> Fetch som hämtar alla subscribers email och print adminTamplate ->
 
-// ----------  DOM FUNCTIONS  --------- //
-
-function checkAdmin(user) {
-  let user = user[0].admin;
-  if (user) {
-    // if true
-    printAdminContent();
-  }
+export function getAdminInfo() {
+  return fetch("https://awesome-pictures.herokuapp.com/users")
+    .then((res) => res.json())
+    .then((users) => {
+      console.log(users);
+      return users;
+    })
+    .catch((err) => console.log(err));
 }
 
 export function printAdminContent(users) {
@@ -26,17 +26,15 @@ export function printAdminContent(users) {
       <div>
         <ul class="subscribers">
         ${users.map((user) => {
-          return `<li>${user.email}</li>`;
+          return ` <li>${user.email}</li> `;
         })}
         </ul>
-      </div>
-      <button class="admin-btn">New Post</button>
-    </div>
+      
   </div>
     `;
   //subscribers.appendChild(userEmail);
 
   document
     .querySelector(".main-content")
-    .insertAdjacentHTML("berforeend", listTamplate);
+    .insertAdjacentHTML("beforeend", listTamplate);
 }
