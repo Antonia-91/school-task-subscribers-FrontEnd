@@ -1,6 +1,13 @@
-console.log("hej");
+// --- Nav bar media (max-width: 800px) ---//
 
-// GLOBAL VARIABLES
+const toggleButton = document.getElementsByClassName("toggle-button")[0];
+const navbarLinks = document.getElementsByClassName("navbar-links")[0];
+
+toggleButton.addEventListener("click", () => {
+  navbarLinks.classList.toggle("active");
+});
+
+// -----  GLOBAL VARIABLES ------ //
 let userLoggedIn = JSON.parse(localStorage.getItem("userLoggedIn"));
 console.log(userLoggedIn);
 
