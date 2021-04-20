@@ -14,6 +14,7 @@ console.log(userLoggedIn);
 import { printMainContent, printLoginContent } from "./main.js";
 import { printLoginForm, getUser } from "./login.js";
 import { printSignUpForm, addNew } from "./signUp.js";
+import { subsctibtionHandeler } from "./stopSubscribe.js";
 // import { printNavMain, printNavUser, printNavAdmin } from "./nav";
 /*import { printAdminTamplate, getSubscribers, getUserId } from "./admin.js";
 import {} from "./stopSubscribe.js";*/
@@ -41,6 +42,7 @@ signUp.addEventListener("click", () => printSignUpForm());
 let adminBtn = document.getElementById("admin-btn");
 adminBtn.addEventListener("click", () => printAdminContent());
 
+//--------------  GLOBAL EVENTLISTENERS --------------- //
 window.addEventListener("click", (e) => {
   // --------  eventlisteners submit form -------- //
 
@@ -55,7 +57,7 @@ window.addEventListener("click", (e) => {
         password: loginPassword.value.trim(),
       };
       getUser(loginUser).then((user) => {
-        userLoggedIn = user;
+        userLoggedIn = user; // set global variabel to user. user comes from EndpointCall
         updateDom(user);
       });
 
@@ -104,11 +106,31 @@ window.addEventListener("click", (e) => {
   }
   // --------  eventlisteners Stop subrscribe -------- //
   if (e.target.matches(".stop")) {
+    console.log(e.target);
     let subscribtion = {
       subscribed: userLoggedIn.userLoggedIn[0].subscribed ? false : true,
     };
     //ls
     let LSuser = JSON.parse(localStorage.getItem("userLoggedIn"));
+    console.log(LSuser);
+
+    //update
+    userLoggedIn.userLoggedIn[0].subscribed = userLoggedIn.userLoggedIn[0]
+      .subscribed
+      ? false
+      : true;
+
+    // if (JSON.stringify(LSuser) === JSON.stringify(userLoggedIn)) {
+    //   console.log("hej");
+    // } else {
+    //   console.log(userLoggedIn);
+    // }
+
+    localStorage.setItem("userLoggedIn", JSON.stringify(userLoggedIn));
+    console.log(userLoggedIn);
+
+    subsctibtionHandeler(userLoggedIn.userLoggedIn[0]._id, subscribtion);
+    updateDom();
   }
 });
 

@@ -14,23 +14,19 @@ function checkAdmin(user) {
 export function printAdminContent(users) {
   document.querySelector(".main-content").innerHTML = "";
 
-  let subscribers = document.querySelector(".subscribers");
-
-//   let userEmail = users.map((user) => {
-//     `<li>${user.email}</li>`;
-//   });
+  //let subscribers = document.querySelector(".subscribers");
 
   let listTamplate = `
     <div class="login-wrapper">
-    <div class="admin">
+    <div class="admin form">
       <div>
         <h1>Admin</h1>
         <p>subscribers</p>
       </div>
       <div>
         <ul class="subscribers">
-        ${users.map(user =>{
-            return `<li>${user.email}</li>`
+        ${users.map((user) => {
+          return `<li>${user.email}</li>`;
         })}
         </ul>
       </div>
@@ -38,7 +34,7 @@ export function printAdminContent(users) {
     </div>
   </div>
     `;
-  subscribers.appendChild(userEmail);
+  //subscribers.appendChild(userEmail);
 
   document
     .querySelector(".main-content")

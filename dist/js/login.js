@@ -1,9 +1,3 @@
-//Imports
-
-// post
-
-// OBS export
-
 // -------- ENDPOINT CALLS -------- //
 export function getUser(user) {
   return fetch("https://awesome-pictures.herokuapp.com/users/login", {
@@ -55,8 +49,3 @@ export function printLoginForm() {
     .querySelector(".main-content")
     .insertAdjacentHTML("beforeend", loginForm);
 }
-
-// module.exports = {
-//   getUser,
-//   printLoginForm
-// }
