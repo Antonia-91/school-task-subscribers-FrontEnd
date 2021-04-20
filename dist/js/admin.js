@@ -1,5 +1,4 @@
 // -------- ENDPOINT CALLS -------- //
-// behöver TVÅ Fetch. En som hämtar info om inloggad user. om admin = true -> Fetch som hämtar alla subscribers email och print adminTamplate ->
 
 export function getAdminInfo() {
   return fetch("https://awesome-pictures.herokuapp.com/users")
@@ -26,6 +25,7 @@ export function printAdminContent(users) {
       <div>
         <ul class="subscribers">
         ${users.map((user) => {
+          console.log(user.email);
           return ` <li>${user.email}</li> `;
         })}
         </ul>
