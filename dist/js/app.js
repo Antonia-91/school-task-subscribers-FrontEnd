@@ -16,7 +16,6 @@ import { printLoginForm, getUser } from "./login.js";
 import { printSignUpForm, addNew } from "./signUp.js";
 import { subsctibtionHandeler } from "./stopSubscribe.js";
 import { getAdminInfo, printAdminContent } from "./admin.js";
-//import {} from "./stopSubscribe.js";*/
 
 //-------------- EVENTLISTENERS --------------- //
 window.addEventListener("load", () => {
@@ -71,21 +70,28 @@ window.addEventListener("click", (e) => {
   // --------  eventlisteners submit form -------- //
 
   if (e.target.matches("#submit-login")) {
+    e.preventDefault();
     let userName = document.querySelector("#userName");
     let loginPassword = document.querySelector("#loginPassword");
-    console.log(userName, loginPassword);
+    //onsole.log(userName, loginPassword);
+    console.log("login");
 
     if (userName.value.trim() != "" && loginPassword.value.trim() != "") {
       let loginUser = {
         userName: userName.value.trim(),
         password: loginPassword.value.trim(),
       };
-      getUser(loginUser).then((user) => {
-        userLoggedIn = user; // set global variabel to user. user comes from EndpointCall
-        updateDom(user);
-      });
 
-      //printLoginContent(user.userName);
+      getUser(loginUser).then((user) => {
+        console.log(user);
+        if (user.isUserFound) {
+          userLoggedIn = user; // set global variabel to user. user comes from EndpointCall
+          localStorage.setItem("userLoggedIn", JSON.stringify(user));
+          updateDom(user);
+        } else {
+          alert("uncorrect nuserName or password!");
+        }
+      });
     } else {
       alert("you must complete all necessary fields");
     }

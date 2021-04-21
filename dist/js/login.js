@@ -1,14 +1,14 @@
 // -------- ENDPOINT CALLS -------- //
-export function getUser(user) {
+export function getUser(userLoginInfo) {
   return fetch("https://awesome-pictures.herokuapp.com/users/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(user),
+    body: JSON.stringify(userLoginInfo),
   })
     .then((res) => res.json())
     .then((user) => {
       console.log(user);
-      localStorage.setItem("userLoggedIn", JSON.stringify(user));
+      //localStorage.setItem("userLoggedIn", JSON.stringify(user));
       return user;
     })
     .catch((err) => console.log(err));
@@ -37,7 +37,7 @@ export function printLoginForm() {
             <label for="loginPassword">Password</label>
           </div>
 
-          <input type="submit" value="Login" class="submit-btn" id="submit-login"/>
+          <input type="button" value="Login" class="submit-btn" id="submit-login"/>
           <a href="#forgot-pw" class="forgot-pw">Forgot Password?</a>
         </form>
 

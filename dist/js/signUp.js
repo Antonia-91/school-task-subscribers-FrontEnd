@@ -1,7 +1,7 @@
 // ---- ENPOINT CALL ----- //
 
 export function addNew(user) {
-  fetch("https://awesome-pictures.herokuapp.com/users/", {
+  fetch("https://awesome-pictures.herokuapp.com/users", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(user),
@@ -54,7 +54,7 @@ export function printSignUpForm() {
     <input type="checkbox" id="checkbox" name="checkbox" />
     <label for="checkbox"> subscribe on newsletter</label>
 
-    <input type="submit" value="save" class="submit-btn" id="submit-new-btn" />
+    <input type="button" value="save" class="submit-btn" id="submit-new-btn" />
   </form>
 </div>
     `;
