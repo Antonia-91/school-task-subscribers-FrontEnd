@@ -21,25 +21,6 @@ import { getAdminInfo, printAdminContent } from "./admin.js";
 window.addEventListener("load", () => {
   updateDom();
 });
-// // handels homeBtn
-// let homeBtn = document.getElementById("home-btn");
-// homeBtn.addEventListener("click", () => {
-//   updateDom();
-// });
-// //handel loginform
-// let loginBtn = document.getElementById("login-btn");
-// loginBtn.addEventListener("click", (e) => {
-//   console.log(e.target);
-//   console.log("LOGIN FORM");
-
-//   printLoginForm();
-// });
-// // handels signupform
-// let signUp = document.getElementById("singUp-btn");
-
-// signUp.addEventListener("click", () => printSignUpForm());
-// let adminBtn = document.getElementById("admin-btn");
-// adminBtn.addEventListener("click", () => printAdminContent());
 
 //--------------  GLOBAL EVENTLISTENERS --------------- //
 window.addEventListener("click", (e) => {
@@ -125,8 +106,6 @@ window.addEventListener("click", (e) => {
         admin: false,
         subscribed: checkbox.checked,
       };
-      //clear all fields
-      //clearFields();
 
       addNew(newUser);
       updateDom();
@@ -150,12 +129,6 @@ window.addEventListener("click", (e) => {
       ? false
       : true;
 
-    // if (JSON.stringify(LSuser) === JSON.stringify(userLoggedIn)) {
-    //   console.log("hej");
-    // } else {
-    //   console.log(userLoggedIn);
-    // }
-
     localStorage.setItem("userLoggedIn", JSON.stringify(userLoggedIn));
     console.log(userLoggedIn);
 
@@ -164,9 +137,7 @@ window.addEventListener("click", (e) => {
   }
 });
 
-// -------- ENDPOINT CALLS -------- //
-
-// ---- DOM Functions ---- ///
+// -------- DOM Functions --------- ///
 function updateDom() {
   let navbar = document.querySelector(".navbar-links > ul");
 

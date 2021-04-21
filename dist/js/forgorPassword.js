@@ -1,3 +1,5 @@
+// ---- OBS , this one I do not use at the moment --- ///
+
 let forgotPassTamplate = `
 <div id="forgot-pw">
 <form action="" class="form">

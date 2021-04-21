@@ -1,9 +1,5 @@
 // --- main tamplate - Not logged in --- //
 export function printMainContent() {
-  // change to loginBtn
-  //let loginBtn = document.getElementById("login-btn");
-  //loginBtn.innerHTML = `<li id="login-btn"><a href="login.html">Login</a></li>`;
-  // empty main content
   document.querySelector(".main-content").innerHTML = "";
 
   let mainContentTamplate = `
@@ -58,10 +54,6 @@ export function printMainContent() {
 
 // --- main tamplate -  logged in --- //
 export function printLoginContent(user) {
-  // change to logOutBtn
-  // let loginBtn = document.getElementById("login-btn");
-  // loginBtn.innerHTML = ` <li id="logOut-btn"><a href="#">Log out</a></li>`;
-  // empty main content
   document.querySelector(".main-content").innerHTML = "";
 
   let loggedinTamplate = `

@@ -15,7 +15,7 @@ export function addNew(user) {
     .catch((err) => console.log(err));
 }
 
-// ---- DOM funcrtions --- //
+// ---- DOM functions --- //
 
 export function printSignUpForm() {
   //empty first
