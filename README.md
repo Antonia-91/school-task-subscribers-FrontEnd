@@ -7,7 +7,7 @@ I detta repot finner du applikationens Frontend.
 Applikationen för användare är byggd som en headless applikation med vanilla js för Alla DOM funktioner och vyer.
 Fetch sker mot min backend server som är deployad på Heroku och jag har använt MongoDB Atlas som databas för att lagra användaruppgifter.
 
-# Backend repo
+### Backend repo
 
 länkt till applicationens Backend : https://github.com/Antonia-91/school-task-subscribers-BackEnd.git
 
