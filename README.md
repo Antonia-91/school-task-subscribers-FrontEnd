@@ -2,7 +2,7 @@
 
 ## admin
 
--- OBS för att kunna logga in som admin använd userName : admin & Password : admin
+-- OBS för att kunna logga in som admin använd userName : Admin & Password : Admin
 
 ### General Info
 
