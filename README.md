@@ -1,5 +1,9 @@
 # school-task-subscribers-FrontEnd
 
+## admin
+
+-- OBS för att kunna logga in som admin använd userName : admin & Password : admin
+
 ### General Info
 
 I detta repot finner du applikationens Frontend.

@@ -26,7 +26,7 @@ export function printAdminContent(users) {
         <ul class="subscribers">
         ${users.map((user) => {
           console.log(user.email);
-          return ` <li>${user.email}</li> `;
+          return ` <li> ${user.subscribed ? user.email : ""} </li>`;
         })}
         </ul>
       
@@ -38,3 +38,5 @@ export function printAdminContent(users) {
     .querySelector(".main-content")
     .insertAdjacentHTML("beforeend", listTamplate);
 }
+
+//` <li>${user.email}</li> `;
