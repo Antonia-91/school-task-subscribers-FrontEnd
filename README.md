@@ -9,7 +9,7 @@ Fetch sker mot min backend server som är deployad på Heroku och jag har använ
 
 ### Backend repo
 
-länkt till applicationens Backend : https://github.com/Antonia-91/school-task-subscribers-BackEnd.git
+länk till applicationens Backend : https://github.com/Antonia-91/school-task-subscribers-BackEnd.git
 
 ### Applications features
 
