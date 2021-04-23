@@ -7,13 +7,14 @@ toggleButton.addEventListener("click", () => {
   navbarLinks.classList.toggle("active");
 });
 
+//-------------- IMPORTS --------------- //
 import { printMainContent, printLoginContent } from "./main.js";
 import { printLoginForm, getUser } from "./login.js";
 import { printSignUpForm, addNew } from "./signUp.js";
 import { subsctibtionHandeler } from "./stopSubscribe.js";
 import { getAdminInfo, printAdminContent } from "./admin.js";
 
-// -----  GLOBAL VARIABLES ------ //
+// -----  GLOBAL VARIABLE ------ //
 let userLoggedIn = JSON.parse(localStorage.getItem("userLoggedIn"));
 console.log(userLoggedIn);
 

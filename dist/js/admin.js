@@ -13,8 +13,6 @@ export function getAdminInfo() {
 export function printAdminContent(users) {
   document.querySelector(".main-content").innerHTML = "";
 
-  //let subscribers = document.querySelector(".subscribers");
-
   let listTamplate = `
     <div class="login-wrapper">
     <div class="admin form">
@@ -25,18 +23,19 @@ export function printAdminContent(users) {
       <div>
         <ul class="subscribers">
         ${users.map((user) => {
-          console.log(user.email);
-          return ` <li> ${user.subscribed ? user.email : ""} </li>`;
+          return `<li>${user.email} ${
+            user.subscribed
+              ? `<i class="fa fa-check-circle" aria-hidden="true"></i>`
+              : ""
+          }</li>`;
         })}
         </ul>
       
   </div>
+    
     `;
-  //subscribers.appendChild(userEmail);
 
   document
     .querySelector(".main-content")
     .insertAdjacentHTML("beforeend", listTamplate);
 }
-
-//` <li>${user.email}</li> `;

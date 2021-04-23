@@ -7,13 +7,13 @@
 ### General Info
 
 I detta repot finner du applikationens Frontend.
-"huvud mappen" är app.js . alla andra js filer imporoteras hit
-Applikationen för användare är byggd som en headless applikation med vanilla js för Alla DOM funktioner och vyer.
+"huvud mappen" är app.js . alla andra js filer imporoteras hit.
+Applikationen för användare är byggd som en headless applikation med vanilla js.
 Fetch sker mot min backend server som är deployad på Heroku och jag har använt MongoDB Atlas som databas för att lagra användaruppgifter.
 
 ### Backend repo
 
-länk till applicationens Backend : https://github.com/Antonia-91/school-task-subscribers-BackEnd.git
+Länk till applicationens Backend : https://github.com/Antonia-91/school-task-subscribers-BackEnd.git
 
 ### Applications features
 

@@ -14,7 +14,7 @@ export function getUser(userLoginInfo) {
     .catch((err) => console.log(err));
 }
 
-//--- DOM Funktion --//
+//-------- DOM Funktion -------- //
 export function printLoginForm() {
   document.querySelector(".main-content").innerHTML = "";
 
