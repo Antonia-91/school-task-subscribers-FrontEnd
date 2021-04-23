@@ -18,7 +18,7 @@ export function printAdminContent(users) {
     <div class="admin form">
       <div>
         <h1>Admin</h1>
-        <p>subscribers</p>
+        <p>Subscribers  = <i class="fa fa-check-circle" aria-hidden="true"></i> </p>
       </div>
       <div>
         <ul class="subscribers">
